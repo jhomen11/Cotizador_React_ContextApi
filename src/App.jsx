@@ -1,9 +1,10 @@
+import AppSeguro from "./components/AppSeguro"
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Hola</h1>
+      <AppSeguro/>
     </div>
       
   )
