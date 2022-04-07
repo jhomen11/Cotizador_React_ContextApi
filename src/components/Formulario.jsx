@@ -1,13 +1,27 @@
 import { Fragment } from "react/cjs/react.production.min";
 import { MARCAS, YEARS, PLANES } from "../constants";
 import useCotizador from "../hooks/UseCotizador";
+import Error from "./Error";
 
 const Formulario = () => {
-  const { datos, handleChangeDatos } = useCotizador();
+  const { datos, handleChangeDatos, error, setError } = useCotizador();
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    if(Object.values(datos).includes('')){
+        setError('Todos los Campos son Obligatorios')
+        return
+    }
+    setError('')
+  }
 
   return (
     <>
-      <form>
+    {error && <Error/>}
+      <form
+        onSubmit={handleSubmit}
+      >
         <div>
           <label htmlFor="marca">Marca</label>
             <select 
