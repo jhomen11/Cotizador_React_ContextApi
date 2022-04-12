@@ -1,6 +1,10 @@
+import useCotizador from "../hooks/UseCotizador"
 import Formulario from "./Formulario"
 
+
 const AppSeguro = () => {
+
+    const { resultado } = useCotizador()
     return(
         <>
             <header>
@@ -8,6 +12,7 @@ const AppSeguro = () => {
             </header>
             <main>
                 <Formulario/>
+                {resultado}
             </main>
         </>
     )
