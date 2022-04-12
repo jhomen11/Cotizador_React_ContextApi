@@ -1,10 +1,11 @@
 import useCotizador from "../hooks/UseCotizador"
 import Formulario from "./Formulario"
+import Spinner from "./Spinner"
 
 
 const AppSeguro = () => {
 
-    const { resultado } = useCotizador()
+    const { resultado, cargando } = useCotizador()
     return(
         <>
             <header>
@@ -12,7 +13,7 @@ const AppSeguro = () => {
             </header>
             <main>
                 <Formulario/>
-                {resultado}
+                {cargando ? <Spinner/> : resultado }
             </main>
         </>
     )
